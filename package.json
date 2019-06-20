@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "core": "file:core",
     "mongoose": "^5.6.0",
     "sha1": "^1.1.1"
   }

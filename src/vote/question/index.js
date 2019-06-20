@@ -5,7 +5,7 @@ const { flatten } = require('lodash');
  * @typedef Question
  * @type {Object}
  * @prop {string} text
- * @prop {number} id
+ * @prop {number} id    
  */
 
 exports.vote = async ({ data: { question_id }, session: { id: user_id } }) => {
@@ -30,7 +30,11 @@ exports.revote = async ({ data: { _id, question_id }, session }) => {
     return this.vote({ data: { question_id }, session })
 }
 
-exports.create = async ({ data }) => question.create(data);
+exports.create = async ({ data: { text, questionnary_id } }) => {
+    const existing_questionnary = await questionnary.findOne({ _id: questionnary_id });
+    if (existing_questionnary === null) return { error: 'Questionnary not found!' };
+    return question.create({ text, questionnary_id });
+};
 exports.update = async ({ data: { _id, ...quest } }) => {
     await question.updateOne({ _id }, quest)
     return question.findOne({ _id });
