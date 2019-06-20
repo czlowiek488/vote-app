@@ -1,4 +1,11 @@
 const { questionnary } = require('../../db')
+/* 
+    example notification
+    
+    const { notify } = require('core/server/websocket');
+    notify(user_id, { notification_name: 'test', dupa: 'aaa' }) 
+*/
+
 /**
  * @typedef Questionnary
  * @type {Object}
@@ -6,7 +13,6 @@ const { questionnary } = require('../../db')
  * @prop {number} id
  * @prop {string} title
  */
-
 exports.create = async ({ data: { title }, session: { id: user_id } }) => questionnary.create({ title, user_id });
 exports.update = async ({ data: { _id, ...update }, session: { id: user_id } }) => {
     await questionnary.updateOne({ _id, user_id }, update);

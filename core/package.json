@@ -1,0 +1,16 @@
+{
+  "name": "core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "none",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "core": "file:./",
+    "moment": "^2.24.0",
+    "websocket": "^1.0.28"
+  }
+}
