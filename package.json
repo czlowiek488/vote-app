@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "core": "file:core",
-    "mongoose": "^5.6.0",
+    "mongoose": "^5.7.5",
     "sha1": "^1.1.1"
   }
 }
